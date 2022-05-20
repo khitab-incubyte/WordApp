@@ -1,6 +1,7 @@
 package co.incubyte.wordapp;
 
 import io.micronaut.http.annotation.Controller;
+import io.micronaut.http.annotation.Post;
 
 @Controller("/word")
 public class WordController {
@@ -10,7 +11,9 @@ public class WordController {
         this.wordService = wordService;
     }
 
-    public void save(Word word) {
-        throw new UnsupportedOperationException();
+    @Post("/")
+    public Word save(Word word) {
+        return wordService.save(word);
     }
+
 }
