@@ -5,6 +5,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
+import static org.mockito.Mockito.verify;
+
 @ExtendWith(MockitoExtension.class)
 public class WordServiceShould {
     @Mock
@@ -17,6 +21,17 @@ public class WordServiceShould {
 
     WordService wordService = new WordService(wordRepository);
         wordService.save(word);
+
+        verify(wordRepository).save(word);
+    }
+
+    @Test
+    public void read_todo_by_calling_repository()
+    {
+        WordService wordService = new WordService(wordRepository);
+        long id = 100L;
+        Optional<Word> retrivedWord = wordService.get(id);
+        verify(wordRepository).findById(id);
     }
 
 }
