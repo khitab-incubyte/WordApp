@@ -1,4 +1,30 @@
 package co.incubyte.wordapp;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Word {
+    @Id
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    private String word;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getWord() {
+        return word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
+    }
 }
