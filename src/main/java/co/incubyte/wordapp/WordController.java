@@ -21,6 +21,6 @@ public class WordController {
 
     @Get("/{id}")
     public Optional<Word> findById(long id) {
-        throw new UnsupportedOperationException();
+        return wordService.get(id);
     }
 }
