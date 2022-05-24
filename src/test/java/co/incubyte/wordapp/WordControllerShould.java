@@ -6,6 +6,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Optional;
+
+import static org.mockito.Mockito.verify;
+
 @ExtendWith(MockitoExtension.class)
 public class WordControllerShould {
 
@@ -20,5 +24,16 @@ public class WordControllerShould {
         Word word = new Word();
         wordController.save(word);
 
+        verify(wordService).save(word);
+    }
+
+    @Test
+    public void call_service_to_find_word()
+    {
+        WordController wordController = new WordController(wordService);
+        long id = 100L;
+
+        Optional<Word> word = wordController.findById(id);
+        verify(wordService).get(id);
     }
 }
