@@ -36,4 +36,14 @@ public class WordControllerShould {
         Optional<Word> word = wordController.findById(id);
         verify(wordService).get(id);
     }
+
+    @Test
+    public void get_all_words()
+    {
+        WordController wordController = new WordController(wordService);
+
+        Iterable<Word> words = wordController.getAllWords();
+
+        verify(wordService).getAllWords();
+    }
 }
