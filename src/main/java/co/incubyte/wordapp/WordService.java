@@ -28,4 +28,9 @@ public class WordService {
         wordRepository.deleteById(id);
         return wordRepository.findAllOrderById();
     }
+
+    public Iterable<Word> updateWord(Word word) {
+        wordRepository.update(word);
+        return wordRepository.findAllOrderById();
+    }
 }

@@ -32,4 +32,10 @@ public class WordController {
     {
         return wordService.deleteWord(id);
     }
+
+    @Patch
+    public Iterable<Word> updateWord(@Body Word word)
+    {
+        return wordService.updateWord(word);
+    }
 }
