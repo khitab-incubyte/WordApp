@@ -26,7 +26,7 @@ public class WordServiceShould {
     }
 
     @Test
-    public void read_todo_by_calling_repository()
+    public void read_word_by_calling_repository()
     {
         WordService wordService = new WordService(wordRepository);
         long id = 100L;

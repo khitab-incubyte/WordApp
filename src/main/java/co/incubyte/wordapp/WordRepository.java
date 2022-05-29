@@ -5,5 +5,5 @@ import io.micronaut.data.repository.CrudRepository;
 
 @Repository
 public interface WordRepository extends CrudRepository<Word, Long> {
-
+    Iterable<Word> findAllOrderById();
 }

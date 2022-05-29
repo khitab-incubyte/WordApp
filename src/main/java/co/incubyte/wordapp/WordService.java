@@ -19,4 +19,13 @@ public class WordService {
     public Optional<Word> get(long id) {
         return wordRepository.findById(id);
     }
+
+    public Iterable<Word> getAllWords() {
+        return wordRepository.findAllOrderById();
+    }
+
+    public Iterable<Word> deleteWord(long id) {
+        wordRepository.deleteById(id);
+        return wordRepository.findAllOrderById();
+    }
 }

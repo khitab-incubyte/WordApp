@@ -1,8 +1,6 @@
 package co.incubyte.wordapp;
 
-import io.micronaut.http.annotation.Controller;
-import io.micronaut.http.annotation.Get;
-import io.micronaut.http.annotation.Post;
+import io.micronaut.http.annotation.*;
 
 import java.util.Optional;
 
@@ -15,12 +13,23 @@ public class WordController {
     }
 
     @Post("/")
-    public Word save(Word word) {
+    public Word save(@Body Word word) {
         return wordService.save(word);
     }
 
     @Get("/{id}")
     public Optional<Word> findById(long id) {
         return wordService.get(id);
+    }
+
+    @Get("/")
+    public Iterable<Word> getAllWords() {
+        return wordService.getAllWords();
+    }
+
+    @Delete("/")
+    public Iterable<Word> deleteWord(long id)
+    {
+        return wordService.deleteWord(id);
     }
 }
